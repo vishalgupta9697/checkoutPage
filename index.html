@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Hotel Vishal Inn.</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Vishal Inn Chekout Page</h1>
+    </header>
+    <section>
+      <div class="chekoutBox">
+        <h1>Checkout</h1>
+        <form action="#" method="post">
+          <label for="">Cardholder Name</label> <br />
+          <input
+            type="text"
+            placeholder="type your name here."
+            required
+          /><br />
+          <label for="">Card Number</label><br />
+          <input
+            type="text"
+            class="card-input"
+            id="cardNumber"
+            maxlength="19"
+            placeholder="1234 5678 9012 3456"
+          /><br />
+          <label for="">Expiry Date:</label><br />
+          <input type="text" placeholder="MM/YY" /><br />
+          <label for="" required>CVV</label><br />
+          <input type="text" placeholder="123" /><br />
+          <label for="">Zip Code</label><br />
+          <input type="text" placeholder="123456" required /><br />
+          <button onclick="alert('Thanks for your submission!');" type="submit" class="btn">Pay Now</button>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; 2024 Vishal Inn. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+          <li><a href="/contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+      const cardInput = document.getElementById("cardNumber");
+
+      cardInput.addEventListener("input", (e) => {
+        let value = e.target.value.replace(/\D/g, ""); // Remove all non-digit characters
+        value = value.match(/.{1,4}/g)?.join(" ") || value; // Group digits in sets of 4
+        e.target.value = value;
+      });
+    </script>
+  </body>
+</html>
